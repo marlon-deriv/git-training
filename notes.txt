@@ -1,0 +1,23 @@
+Git and GitHub: The Complete Git and GitHub Course (O'Reilly)
+ - vim editor: Use :x or :wq to save and close
+ - git rm --cached <file>
+    Remove added (staged) file
+ - git log --oneline
+    Shows commits in only one line each
+ - git show <commit-id> (or HEAD, HEAD~1, ...)
+    Shows the changes in a commit
+ - git checkout is read only, you cannot revert from it. It means it's not possible to make changes in previous commits. If you checkout to a previous commit, make another commit from there, move back to the latest commit and try to revert, the changes won't be there anymore.
+    - git checkout <file> (before adding)
+        Undo the changes
+    - git checkout <commit-id> (or HEAD, HEAD~1, ...)
+        Moves the project to a previous commit
+ - git checkout <branch>
+    Moves back to the last version
+ - git revert <commit-id>
+    Reverts to a previous commit as a new commit. Undoes an specific commit. It means if you have more commits between the last version and the chosen one, they won't be affected.
+ - git reset <flag> (--mixed, --soft, --hard)
+    --mixed: Remove commits from history and unstage the respective files from staging area. So the changes are still there waiting to be added (staged).
+        To ignore them: git checkout <files>. 
+    --soft: Like --mixed but keep the files staged.
+        To ignore them: git reset . (no flags == --mixed), and then git checkout <files>.
+    --hard: Remove commits and apply the changes.
